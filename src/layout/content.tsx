@@ -10,7 +10,6 @@ export default function Content({props}: {props: ContentProps}) {
           } else {
             alert("Vibration API is not supported on this device.");
           }
-
       };
     return (
     <div className={`min-h-screen min-w-full z-${props.zIndex} grid grid-cols-1 gap-4 md:grid-cols-4 2xl:grid-cols-6 p-4 w-1/4 mx-auto`}>
