@@ -1,4 +1,3 @@
-import React from 'react';
 import Home from './layout/home';
 import Content from './layout/content';
 
