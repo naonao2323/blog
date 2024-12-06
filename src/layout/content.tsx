@@ -4,10 +4,10 @@ interface ContentProps {
 
 export default function Content({props}: {props: ContentProps}) {
     return (
-    <div className={`min-h-screen min-w-full z-${props.zIndex} grid grid-cols-1 gap-4 md:grid-cols-4 p-10 w-1/4 mx-auto`}>
-        <div className="border-2 border-solid border-stone-100 h-48 flex items-center justify-center p-10">1</div>
-        <div className="border-2 border-solid border-stone-100 h-48 flex items-center justify-center p-10">2</div>
-        <div className="border-2 border-solid border-stone-100 h-48 flex items-center justify-center p-10">3</div>
+    <div className={`min-h-screen min-w-full z-${props.zIndex} grid grid-cols-1 gap-4 md:grid-cols-4 2xl:grid-cols-6 p-4 w-1/4 mx-auto`}>
+    <div className="border-opacity-5 border-solid border-stone-100 h-48 flex items-center justify-center p-10 bg-white rounded-md">
+        <h1 className="font-bold rounded-sm">Golang text/templateについて</h1>
+    </div>
     </div>
     )
 }
