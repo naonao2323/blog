@@ -1,0 +1,44 @@
+name: post
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Configure git to use GH_TOKEN
+      run: git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/".insteadOf "https://github.com/"
+    - name: Set Git identity
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+    - name: Install deps
+      run: npm ci
+    - name: Install GitHub CLI
+      run: |
+        sudo apt update
+        sudo apt install -y gh
+    - name: deploy
+      run: |
+        npm run deploy
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
