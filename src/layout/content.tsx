@@ -4,19 +4,27 @@ interface ContentProps {
 
 export default function Content({props}: {props: ContentProps}) {
     const handleVibrate = () => {
+        console.log("dddddkkk")
         if ("vibrate" in navigator) {
-            alert("viviviviviviviv")
-            console.log("Vibration API is supported!");
+            console.log("ddd")
             navigator.vibrate(10000);
-          } else {
+        } else {
             alert("Vibration API is not supported on this device.");
-          }
-      };
+        }
+    };
+    const popup = (z: number) => {
+        const resp = z + 10
+        if(resp >= 50) {
+            //tailwindの世界をどれだけ知るか
+            return 50
+        }
+        return resp
+    };
     return (
     <div className={`min-h-screen min-w-full z-${props.zIndex} grid grid-cols-1 gap-4 md:grid-cols-4 2xl:grid-cols-6 p-4 w-1/4 mx-auto`}>
-    <div className="border-opacity-5 border-solid border-stone-100 h-48 flex items-center justify-center p-10 bg-white rounded-md" onTouchStart={handleVibrate} >
-        <h1 className="font-bold rounded-sm">Golang text/templateについて</h1>
-    </div>
+        <div className={`border-opacity-5 border-solid border-stone-100 h-48 flex items-center justify-center p-10 bg-white rounded-md z-${popup(props.zIndex)}`} onTouchStart={handleVibrate} >
+            <h1 className="font-bold rounded-sm">Golang text/templateについて</h1>
+        </div>
     </div>
     )
 }
