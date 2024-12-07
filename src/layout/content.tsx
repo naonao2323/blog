@@ -3,21 +3,18 @@ interface ContentProps {
 }
 
 export default function Content({props}: {props: ContentProps}) {
-    const handleVibrate = () => {
-        if ("vibrate" in navigator) {
-            console.log("aaaaaaaaaaaaaa")
-            navigator.vibrate([500, 200, 500, 200, 500]);
-          } else {
-            console.log("bbbbbbbbbbbbbbb")
-            alert("Vibration API is not supported on this device.");
-        }
-    };
     return (
-    <div className={`min-h-screen min-w-full z-${props.zIndex} grid grid-cols-1 gap-4 md:grid-cols-4 2xl:grid-cols-6 p-4 w-1/4 mx-auto`}>
-        <div className={`border-opacity-5 border-solid border-stone-100 h-48 flex items-center justify-center p-10 bg-white rounded-md z-30`} onTouchStart={handleVibrate} >
-            <h1 className="font-bold rounded-sm">Golang text/templateについて</h1>
+        <div className={`h-screen min-w-full z-${props.zIndex} mx-auto flex flex-col p-10 justify-center items-center`}>
+        <div className="w-full h-1/3 my-5 flex justify-between items-center gap-5 p-4" id="2024">
+          <div className="w-full h-5/6 p-4 flex items-center justify-center">
+            <div className="w-full md:w-2/6 h-full bg-slate-800 flex items-center justify-center rounded-md">
+                <h2 className="font-bold text-yellow-300 text-center text-2xl">
+                    sample ...
+                </h2>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     )
 }
 
