@@ -6,7 +6,7 @@ export default function Content({props}: {props: ContentProps}) {
     const handleVibrate = () => {
         if ("vibrate" in navigator) {
             console.log("aaaaaaaaaaaaaa")
-            navigator.vibrate(10000);
+            navigator.vibrate([500, 200, 500, 200, 500]);
           } else {
             console.log("bbbbbbbbbbbbbbb")
             alert("Vibration API is not supported on this device.");
