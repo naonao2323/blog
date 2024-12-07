@@ -5,6 +5,7 @@ interface ContentProps {
 export default function Content({props}: {props: ContentProps}) {
     const handleVibrate = () => {
         if ("vibrate" in navigator) {
+            alert("viviviviviviviv")
             console.log("Vibration API is supported!");
             navigator.vibrate(10000);
           } else {
