@@ -4,11 +4,9 @@ interface ContentProps {
 
 export default function Content({props}: {props: ContentProps}) {
     const handleVibrate = () => {
-        console.log("dddddkkk")
         if ("vibrate" in navigator) {
-            console.log("ddd")
             navigator.vibrate(10000);
-        } else {
+          } else {
             alert("Vibration API is not supported on this device.");
         }
     };
